@@ -24,26 +24,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Heil Helix</title>
-        
+        <script type="text/javascript">
+        window.plugins.flashlight.available(function(isAvailable) {
+          if (isAvailable) {
 
-<script type="text/javascript">
-        function fl() {
-            window.plugins.flashlight.available(function (isAvailable) {
-                if (isAvailable) {
-                    // switch on
-                    window.plugins.flashlight.switchOn(); // success/error callbacks may be passed
-                    // switch off after 3 seconds
-                    setTimeout(function () {
-                        window.plugins.flashlight.switchOff(); // success/error callbacks may be passed
-                    }, 3000);
-                } else {
-                    alert("Flashlight not available on this device");
-                }
-            });
-        }
-        app.initialize();
-    </script>
+            // switch on
+            window.plugins.flashlight.switchOn(); // success/error callbacks may be passed
 
+            // switch off after 3 seconds
+            setTimeout(function() {
+              window.plugins.flashlight.switchOff(); // success/error callbacks may be passed
+            }, 3000);
+
+          } else {
+            alert("Flashlight not available on this device");
+          }
+        });
+        </script>
     </head>
     <body>
         <div class="app">
@@ -51,7 +48,9 @@
             <button onclick="switchOn()">Prende</button>
             <button onclick="switchOff()">Apaga</button>
 
-            <input type="button" value="flashlight" onclick="fl" /> 
+            <input type="button" value="flashlight" onclick="switchOn" />
+            <input type="button" value="flashlight" onclick="switchOff" />
+             
         </div>
 
         <script type="text/javascript" src="phonegap.js"></script>
